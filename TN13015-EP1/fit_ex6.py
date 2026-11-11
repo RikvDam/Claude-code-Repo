@@ -28,11 +28,12 @@ V_Bron, V_Weerstand = np.loadtxt(os.path.join(map_data, "metingenboltzman.csv"),
 V_Weerstand = V_Weerstand / 1000          # mV -> V (csv staat in mV)
 
 # Onzekerheden meters
-# TODO: beide percentages nog controleren in de handleidingen van de meters.
-# Oude commentaar zei 0.1%, oude code 0.3%. Getest: 0.1% of 0.3% verandert kB met ~0.1%,
-# dat is verwaarloosbaar t.o.v. de 5% van n. Hier de ruimste (0.3%) aangehouden.
-procent_bron = 0.003                                                    # 3.5 DMM
-uV_Bron = V_Bron * procent_bron + np.where(V_Bron < 4, 0.001, 0.01)    # V (+1 digit: 1 mV / 10 mV)
+# Spanning over de bron gemeten met de Amprobe 33XR-A (4000 counts, handbediend bereik).
+# Spec DC V, alle bereiken: +-(0.7% van de aflezing + 1 digit)  (bron: amprobe.com/product/33xr-a)
+# 1 digit = 1 mV op het 4 V bereik, 10 mV op het 40 V bereik.
+procent_bron = 0.007
+uV_Bron = V_Bron * procent_bron + np.where(V_Bron < 4, 0.001, 0.01)    # V
+# TODO: 1.5% voor de 5.5 DMM nog controleren in de handleiding (welk type meter?)
 uV_Weerstand = V_Weerstand * 0.015 + 0.000006                           # V, 5.5 DMM
 
 # Bewerkte data
