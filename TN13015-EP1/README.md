@@ -15,7 +15,7 @@ kB = (1.36 ± 0.07)e-23 J/K, compared with 1.380649e-23 (exact). That is a 0.3σ
 ## Fixes compared with the first version
 
 1. The uncertainty in U_D is now included in the fit (effective variance). χ²_red went from 2.43 to 0.13 (with the 0.7% from item 3).
-2. The range (0.066 to 0.428 V, while the manual asks for 0.1 to 0.6 V) is printed. A fit on U_D ≥ 0.1 V only gives kB = 1.352e-23, so it makes no difference.
+2. The range (0.066 to 0.428 V, while the manual asks for 0.1 to 0.6 V) is printed. A fit on U_D ≥ 0.1 V only gives kB = 1.354e-23, so it makes no difference.
 3. The source voltage is now measured with the Amprobe 33XR-A: ±(0.7% rdg + 1 dgt), per [amprobe.com](https://amprobe.com/product/33xr-a/). That is neither 0.1% nor 0.3%. kB changes by about 0.5%, which is negligible next to u(n).
 4. The uncertainty in R1 is not added per point, on purpose: it scales all currents and only ends up in I0, not in b. A 1% change in R1 changes kB by 0.006%.
 
